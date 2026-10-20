@@ -61,9 +61,9 @@ const productImages = [
 
 const productDetails: Record<string, { name: string; category: string; description: string; alt: string }> = {
   'hero-cake.png': {
-    name: 'Bolo floral',
-    category: 'Bolos',
-    description: 'Bolo de camadas com flores em tons suaves e acabamento delicado.',
+    name: 'Sabor & carinho.',
+    category: '',
+    description: 'Descubra nossa seleção de bolos e doces, preparados para adoçar seus melhores momentos.',
     alt: 'Bolo de camadas decorado com flores em tons de rosa',
   },
   '5-ovo.png': {
@@ -312,7 +312,7 @@ export default function Page() {
           <a href={whatsappUrl()} className="text-link">Começar uma conversa <ArrowUpRight size={15} /></a>
         </div>
         <div className="product-gallery" aria-label="Galeria de produtos">
-          <div className="gallery-note">20 espaços preparados<br /><em>para suas delícias</em></div>
+          <div className="gallery-note">Espaços preparados<br /><em>para suas delícias</em></div>
           {products.map((product) => (
             <article className={`product-card ${product.filled ? 'is-filled' : 'is-pending'}`} key={product.id}>
               {product.image ? (
@@ -331,7 +331,7 @@ export default function Page() {
                 </div>
               )}
               <div className="product-caption">
-                <span className="product-category">{product.category}</span>
+                {product.category && <span className="product-category">{product.category}</span>}
                 <h3>{product.name}</h3>
                 <p>{product.description}</p>
                 {product.price && <strong>{product.price}</strong>}
